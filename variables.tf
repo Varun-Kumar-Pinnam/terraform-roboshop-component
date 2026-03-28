@@ -13,9 +13,7 @@ variable "domain_name" {
   type    = string
   default = "advidevops.online"
 }
-variable "component" {
-  type = string  
-}
+
 
 variable "port_number" {
   type = number
@@ -29,10 +27,16 @@ variable "health_check_path" {
   
 }
 
+variable "app_version" {
+ default = "v3"
+}
+
+
+# mandatory inputs from child module.
 variable "rule_priority" {
   type = number  
 }
 
-variable "app_version" {
- default = "v3"
+variable "component" {
+  type = string  
 }
