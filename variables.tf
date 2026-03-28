@@ -16,27 +16,27 @@ variable "domain_name" {
 
 
 variable "port_number" {
-  type = number
+  type    = number
   default = 8080
-  
+
 }
 
 variable "health_check_path" {
-  type = string
+  type    = string
   default = "/health"
-  
+
 }
 
 variable "app_version" {
- default = "v3"
+  default = "v3"
 }
 
 
 # mandatory inputs from child module.
 variable "rule_priority" {
-  type = number  
+  type = number
 }
 
 variable "component" {
-  type = string  
+  type = string
 }

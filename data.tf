@@ -18,7 +18,7 @@ data "aws_ssm_parameter" "private_subnet_id" {
 }
 
 data "aws_ssm_parameter" "frontend_alb_certificate_arn" {
-  name="/${var.project}/${var.environment}/frontend_alb_certificate_arn"
+  name = "/${var.project}/${var.environment}/frontend_alb_certificate_arn"
 }
 
 data "aws_route53_zone" "selected" {
@@ -35,9 +35,9 @@ data "aws_ssm_parameter" "vpc_id" {
 }
 
 data "aws_ssm_parameter" "backend_alb_listener_arn" {
-  name="/${var.project}/${var.environment}/backend_alb_listener_arn"
+  name = "/${var.project}/${var.environment}/backend_alb_listener_arn"
 }
 
 data "aws_ssm_parameter" "frontend_alb_listener_arn" {
-  name="/${var.project}/${var.environment}/frontend_alb_listener_arn"
+  name = "/${var.project}/${var.environment}/frontend_alb_listener_arn"
 }
