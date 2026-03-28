@@ -29,6 +29,7 @@ resource "terraform_data" "main" {
   #connecting to catalogue server from bastion and configuring with ansile playbook
   provisioner "remote-exec" {
     inline = [
+      "until nc -z localhost 22; do echo waiting for ssh; sleep 5; done",
       "chmod +x /tmp/bootstrap.sh",
       "sudo sh /tmp/bootstrap.sh ${var.component} ${var.environment} ${var.app_version}"
     ]
