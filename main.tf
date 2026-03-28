@@ -1,4 +1,4 @@
-/* #catalogue instance creation 
+#catalogue instance creation 
 resource "aws_instance" "main" {
   ami                    = local.ami_id
   instance_type          = "t3.micro"
@@ -103,8 +103,6 @@ resource "aws_launch_template" "main" {
   tags = local.ec2_final_tags
 }
 
-
-
 resource "aws_autoscaling_group" "main" {
   name                      = "${var.project}-${var.environment}-${var.component}"
   max_size                  = 10
@@ -172,12 +170,10 @@ resource "aws_lb_listener_rule" "main" {
   }
   condition {
     host_header {
-      values = ["${var.component}.backend-alb-${var.environment}.${var.domain_name}"]
+      values = [local.alb_host_header]
     }
   }
 }
-
-
 
 #terraform_data to delete catalogue 
 resource "terraform_data" "main_delete" {
@@ -189,4 +185,4 @@ resource "terraform_data" "main_delete" {
   provisioner "local-exec" {
 command = "aws ec2 terminate-instances --instance-ids ${aws_instance.main.id}"
   }
-} */
+} 
